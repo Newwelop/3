@@ -9,7 +9,11 @@ class Human:
         self.car = car
 
     def get_home(self, home):
+        if home != None:
+            print("Продали будинок")
+
         self.home = home
+        print("Прибдали новий будинок")
 
     def get_car(self, car):
         if car != None:
@@ -24,12 +28,32 @@ class Human:
         self.money += money
         self.enjoyment -= 5
     def chill(self):
-        pass
-    def shoping(self):
+        self.cleanlinies_level -= 20
+
+    def shopping(self):
+        if self.car != None:
+            print(f"я не можу туди поїхати")
+        else:
+            print(f"я сьогодні був у магазині у мне залишок {self.money}")
+
+            self.food += 1
+            self.food = self.food
+
+            self.money -=7
+
         pass
 
     def clean_house (self):
-        pass
+        if self.home != None:
+            print(f"ти не можешь прибратися")
+        else:
+            print("пішли прибиратися")
+            self.cleanlinies_level += 1
+            self.enjoyment -= 3
+            self.cleanlinies_level = self.cleanlinies_level
+
+
+
     def life(self):
         pass
     def is_alive(self):
@@ -43,18 +67,10 @@ class Car:
         self.passengers = []
 
 
-    def add_passengers(self, human):
-        self.passengers.append(human)
-    def passengers_info(self):
-            print(f"Авто {self.marka}, ", end='')
-            if self.passengers != []:
-                print(f"зараз в салоны:")
-                for p in self.passengers:
-                    print(p.name)
-                else:
-                    print("немає пасажирів")
+
 
 class Home:
     def __init__(self):
         self.food = 0
         self.cleanlinies_level = 50
+
